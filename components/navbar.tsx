@@ -17,7 +17,6 @@ const Navbar: React.FC<{}> = (props) => {
           <p className="blue-gradient_text">AH</p>
         </Link>
         <nav className="flex text-lg gap-7 font-medium">
-          <NavLink href={"/home"} text={"Home"} />
           <NavLink href={"/about"} text={"About"} />
           <NavLink href={"/projects"} text={"Projects"} />
         </nav>

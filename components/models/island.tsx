@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 /**
  * IMPORTANT: Loading glTF models into a Three.js scene is a lot of work.
@@ -30,14 +30,18 @@ export function Island({
 }) {
   const islandRef = useRef<any>(null);
   // Get access to the Three.js renderer and viewport
-  const { nodes, materials } = useGLTF(
-    "http://localhost:3000/assets/3d/island.glb"
-  ) as any;
+  const { nodes, materials } = useGLTF("/assets/3d/island.glb") as any;
 
-  const AnimatedGroup = a('group');
+  const AnimatedGroup = a("group");
 
   return (
-    <AnimatedGroup ref={islandRef} position={position} scale={scale} rotation={rotation} {...props}>
+    <AnimatedGroup
+      ref={islandRef}
+      position={position}
+      scale={scale}
+      rotation={rotation}
+      {...props}
+    >
       <mesh
         geometry={nodes.polySurface944_tree_body_0.geometry}
         material={materials.PaletteMaterial001}
