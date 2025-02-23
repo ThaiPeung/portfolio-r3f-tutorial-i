@@ -1,5 +1,5 @@
 "use client";
-import React, { Suspense, useEffect } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import Loader from "@/components/loader";
 import { Island } from "@/components/models/island";
@@ -14,16 +14,23 @@ import Plane from "@/components/models/plane";
 }
 
 const HomePage = () => {
-  // let screenScale: Vector3 = new Vector3(1, 1, 1);
-  // let screenPostiton: Vector3 = new Vector3(0, -6.5, -43);
-  let screenScale = [1, 1, 1];
-  let screenPostiton = [0, -6.5, -43];
-  let rotation = [0.1, 4.7, 0];
+  const [isRotating, setIsRotating] = useState(false);
+
+  // - island 3d value
+  let islandScreenScale = [1, 1, 1];
+  let islandScreenPostiton = [0, -6.5, -43];
+  let islandRotation = [0.1, 4.7, 0];
+
+  // - plane 3d value
+  let planeScale = [3, 3, 3];
+  let planePosition = [0, -4, -4];
 
   return (
     <section className="w-full h-screen  relative">
       <Canvas
-        className="w-full h-screen bg-transparent"
+        className={`w-full h-screen bg-transparent ${
+          isRotating ? "cursor-grabbing" : "cursor-grab"
+        }`}
         camera={{ near: 0.1, far: 1000 }}
       >
         <Suspense fallback={<Loader />}>
@@ -38,11 +45,18 @@ const HomePage = () => {
           <Bird />
           <Sky />
           <Island
-            position={screenPostiton}
-            scale={screenScale}
-            rotation={rotation}
+            position={islandScreenPostiton}
+            scale={islandScreenScale}
+            rotation={islandRotation}
+            isRotating={isRotating}
+            setIsRotating={setIsRotating}
           />
-          <Plane />
+          <Plane
+            isRotating={isRotating}
+            scale={planeScale}
+            position={planePosition}
+            rotation={[0, 20.35, 0]}
+          />
         </Suspense>
       </Canvas>
     </section>
