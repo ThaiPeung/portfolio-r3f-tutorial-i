@@ -7,13 +7,10 @@ import { Vector3 } from "three";
 import Sky from "@/components/models/sky";
 import Bird from "@/components/models/bird";
 import Plane from "@/components/models/plane";
-
-{
-  /* <div className='absolute top-28 left-0 right-0 z-10 flex items-center justify-center ' >
-</div> */
-}
+import HomeInfo from "@/components/HomeInfo";
 
 const HomePage = () => {
+  const [currentStage, setCurrentStage] = useState<number | null>(1);
   const [isRotating, setIsRotating] = useState(false);
 
   // - island 3d value
@@ -27,6 +24,9 @@ const HomePage = () => {
 
   return (
     <section className="w-full h-screen  relative">
+      <div className="absolute top-28 left-0 right-0 z-10 flex items-center justify-center">
+        {currentStage && <HomeInfo currentStage={currentStage}/>}
+      </div>
       <Canvas
         className={`w-full h-screen bg-transparent ${
           isRotating ? "cursor-grabbing" : "cursor-grab"
@@ -43,12 +43,13 @@ const HomePage = () => {
           />
 
           <Bird />
-          <Sky />
+          <Sky isRotating={isRotating} />
           <Island
             position={islandScreenPostiton}
             scale={islandScreenScale}
             rotation={islandRotation}
             isRotating={isRotating}
+            setCurrentStage={setCurrentStage}
             setIsRotating={setIsRotating}
           />
           <Plane
