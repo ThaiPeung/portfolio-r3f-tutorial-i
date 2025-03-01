@@ -1,6 +1,5 @@
 import Link from "next/link";
 import React from "react";
-import { arrow } from "../public/assets/icons";
 
 type InfoBoxType = {
   text: string;
@@ -14,7 +13,7 @@ const InfoBox = ({ text, link, btnText }: InfoBoxType) => {
       <p className="font-medium sm:text-xl text-center">{text}</p>
       <Link href={link} className="neo-brutalism-white neo-btn">
         {btnText}
-        <img />
+        <img src="/assets/icons/arrow.svg"/>
       </Link>
     </div>
   );
