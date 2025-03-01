@@ -1,6 +1,7 @@
 "use client";
 import Loader from "@/components/loader";
 import Fox from "@/components/models/Fox";
+import useAlert from "@/hooks/useAlert";
 import { Canvas } from "@react-three/fiber";
 import React, { Suspense, useRef, useState } from "react";
 
@@ -21,6 +22,8 @@ const ContactPage = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [currentAnimation, setCurrentAnimation] = useState<string>("idle");
 
+  const { alert, showAlert, hideAlert } = useAlert();
+
   const handleChange = (e: any) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -32,6 +35,12 @@ const ContactPage = () => {
 
     // - simulate loading
     setTimeout(() => {
+      setForm({ name: "", email: "", message: "" });
+      showAlert({
+        show: true,
+        text: "Message send successfully!",
+        type: "success",
+      });
       setIsLoading(false);
       setCurrentAnimation("idle");
     }, 1000 * 5);

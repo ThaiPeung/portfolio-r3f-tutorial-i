@@ -7,18 +7,18 @@ const useAlert = () => {
   const showAlert = ({ text, type = "danger" }: any) =>
     setAlert({
       show: true,
-      text: "",
-      type: "danger",
+      text,
+      type,
     });
 
-  const hideAlert = ({ text, type = "danger" }: any) =>
+  const hideAlert = () =>
     setAlert({
       show: false,
       text: "",
       type: "danger",
     });
 
-  return <div></div>;
+  return { alert, showAlert, hideAlert };
 };
 
 export default useAlert;
