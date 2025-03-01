@@ -1,6 +1,7 @@
 import React from "react";
 
 import { skills } from "@/constants";
+import CTA from "@/components/CTA";
 
 const AboutPage = () => {
   return (
@@ -39,10 +40,15 @@ const AboutPage = () => {
         <h3 className="subhead-text">Work Experience.</h3>
         <div className="mt-5 flex flex-col gap-3 text-slate-500">
           <p>
-            Work at Bangkok Bank (BBL) more than 2 years as software engineer and internship at PEA for 6 months
+            Work at Bangkok Bank (BBL) more than 2 years as software engineer
+            and internship at PEA for 6 months
           </p>
         </div>
       </div>
+
+      <hr className="border-slate-200" />
+
+      <CTA />
     </section>
   );
 };
