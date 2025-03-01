@@ -1,4 +1,5 @@
 "use client";
+import Alert from "@/components/Alert";
 import Loader from "@/components/loader";
 import Fox from "@/components/models/Fox";
 import useAlert from "@/hooks/useAlert";
@@ -37,13 +38,16 @@ const ContactPage = () => {
     setTimeout(() => {
       setForm({ name: "", email: "", message: "" });
       showAlert({
-        show: true,
         text: "Message send successfully!",
         type: "success",
       });
       setIsLoading(false);
       setCurrentAnimation("idle");
-    }, 1000 * 5);
+
+      setTimeout(() => {
+        hideAlert();
+      }, 1000 * 3);
+    }, 1000 * 3);
   };
 
   const handleFocus = () => {
@@ -55,6 +59,7 @@ const ContactPage = () => {
 
   return (
     <section className="relative flex lg:flex-row flex-col max-container">
+      {alert.show && <Alert {...alert} />}
       <div className="flex-1 min-w-[50%] flex flex-col">
         <h1 className="head-text">Get in Touch</h1>
 
