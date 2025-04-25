@@ -37,6 +37,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 
 Credits
+"Fox's islands" (https://skfb.ly/6XpAQ) by Andrew is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
 "Stylized WW1 Plane" (https://skfb.ly/6ZFnM) by AntijnvanderGun is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 
 "phoenix bird" (https://skfb.ly/6vLBp) by NORBERTO-3D is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
