@@ -8,6 +8,7 @@ import Sky from "@/components/models/sky";
 import Bird from "@/components/models/bird";
 import Plane from "@/components/models/plane";
 import HomeInfo from "@/components/HomeInfo";
+import { OrbitControls } from "@react-three/drei";
 
 const HomePage = () => {
   const [currentStage, setCurrentStage] = useState<number | null>(1);
@@ -25,7 +26,7 @@ const HomePage = () => {
   return (
     <section className="w-full h-screen  relative">
       <div className="absolute top-28 left-0 right-0 z-10 flex items-center justify-center">
-        {currentStage && <HomeInfo currentStage={currentStage}/>}
+        {currentStage && <HomeInfo currentStage={currentStage} />}
       </div>
       <Canvas
         className={`w-full h-screen bg-transparent ${
